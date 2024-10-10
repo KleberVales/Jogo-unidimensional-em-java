@@ -4,7 +4,38 @@ import java.util.*;
 
 public class Resolucao {
 
+    public static boolean find_path(int leap, int[] game, int x) {
+        if (x < 0) {
+            return false;
+        }
+
+        if (x > game.length - 1) {
+            return true;
+        }
+
+        if (game[x] != 0) {
+            return false;
+        }
+
+        game[x] = 5;
+
+        if (find_path(leap, game, x + 1)) {
+            return true;
+        }
+        if (find_path(leap, game, x + leap)) {
+            return true;
+        }
+        if (find_path(leap, game, x - 1)) {
+            return true;
+        }
+
+        game[x] = 0;
+
+        return false;
+    }
+
    
+
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
