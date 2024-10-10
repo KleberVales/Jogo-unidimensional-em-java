@@ -34,7 +34,9 @@ public class Resolucao {
         return false;
     }
 
-   
+    public static boolean canWin(int leap, int[] game) {
+        return find_path(leap, game, 0);
+    }
 
 
     public static void main(String[] args) {
